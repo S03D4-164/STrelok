@@ -316,13 +316,13 @@ def sdo_view_recursive(request, id):
 
 def sdo_view(request, id, recursive=False):
     mask = True
-    sdo = STIXObject.objects.get(object_id__object_id=id)    
+    sdo = STIXObject.objects.get(object_id__object_id=id)
     m = get_model_from_type(id)
     if request.user.is_authenticated():
         mask = False
         sdo = m.objects.get(object_id__object_id=id)
     else:
-        if not m == Identity:    
+        if not m == Identity:
             sdo = m.objects.get(object_id__object_id=id)
     form = getform(id.split("--")[0], instance=sdo)
     objs = get_related_obj(sdo, recursive=recursive)
@@ -348,19 +348,15 @@ def sdo_view(request, id, recursive=False):
         Q(source=sdo.object_type)|\
         Q(target=sdo.object_type)
     )
- 
     drform = DefinedRelationshipForm()
     drform.fields["relation"].queryset = drs
-
     soform = SelectObjectForm()
     if not sdo.object_type.name == "report":
         soform.fields["type"].queryset = STIXObjectType.objects.filter(
             id__in=drs.values("target")
         )
-
     selected = None
     coform = None
-
     aoform = AddObjectForm()
     asform = SightingForm()
     if sdo.object_type.name == "identity":
@@ -507,7 +503,6 @@ def sdo_view(request, id, recursive=False):
                                         target_ref=tgt,
                                         relationship_type=drs.type,
                                     )
-                            
             if saved:
                 messages.add_message(request, messages.SUCCESS,'Created -> ' + str(saved))
             return redirect("/stix/"+id)

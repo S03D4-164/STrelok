@@ -13,16 +13,16 @@ function visNetwork(nodes, edges, icon){
         var object = network.getSelectedNodes();
         //models = types;
         models = [
-            "attack-pattern", 
+            "attack-pattern",
             "campaign",
             "course-of-action",
             "identity",
             "indicator",
             "intrusion-set",
-            "malware", 
-            "threat-actor", 
-            "tool", 
-            "vulnerability", 
+            "malware",
+            "threat-actor",
+            "tool",
+            "vulnerability",
         ];
         if (models.includes(object[0])){
             location.href = "/stix/" + object;
@@ -117,7 +117,7 @@ function visOption(){
                     centralGravity:0.5,
                     springLength: 100,
                 },
-                forceAtlas2Based:{  
+                forceAtlas2Based:{
                     gravitationalConstant:-50,
                     centralGravity:0.01,
                     springLength:150,

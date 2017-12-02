@@ -72,7 +72,7 @@ def _simple_name(obj):
     simple_name = obj.object_id.object_id
     if obj.object_type.model_name:
         m = apps.get_model(
-            obj._meta.app_label, 
+            obj._meta.app_label,
             obj.object_type.model_name
         )
         o = m.objects.get(id=obj.id)
@@ -527,5 +527,5 @@ class TaxiiCollection(models.Model):
     def save(self, *args, **kwargs):
         if not self.collection_id:
             from uuid import uuid4
-            self.collection_id = str(uuid4()) 
+            self.collection_id = str(uuid4())
         super(TaxiiCollection, self).save(*args, **kwargs)

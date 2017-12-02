@@ -39,7 +39,6 @@ def data_drs(request):
             )
     else:
         drs = DefinedRelationship.objects.all()
-            
     for dr in drs:
         for sot in (dr.source, dr.target):
             node = {

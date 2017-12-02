@@ -24,12 +24,12 @@ chart = new Highcharts.chart({
     title: { text: 'Count of Targets by ' +  prop },
     subtitle: { text: subtitle },
     credits: {"enabled":false},
-    xAxis: { 
-        type: 'category', 
+    xAxis: {
+        type: 'category',
         //title: {text: xaxis } ,
     },
-    yAxis: { 
-        title: {text: 'Total' } 
+    yAxis: {
+        title: {text: 'Total' }
     },
     legend: { enabled: false },
     exporting: { enabled: false },

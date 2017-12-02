@@ -120,7 +120,7 @@ function populateLegend(typeGroups) {
 function populateSelected(d) {
   // Remove old values from HTML
   selectedContainer.innerHTML = "";
-  
+
   var counter = 0;
 
   Object.keys(d).forEach(function(key) { // Make new HTML elements and display them
@@ -128,7 +128,7 @@ function populateSelected(d) {
     var div = document.createElement('div');
     var type = document.createElement('div');
     var val = document.createElement('div');
-    
+
     // Assign classes for proper styling
     if ((counter % 2) != 0) {
       div.classList.add("odd"); // every other row will have a grey background
@@ -140,7 +140,7 @@ function populateSelected(d) {
     var value = d[key];
     type.innerText = key;
     val.innerText = value;
-    
+
     // Add new divs to "Selected Node"
     div.appendChild(type);
     div.appendChild(val);
@@ -189,7 +189,7 @@ function toggleViz(id) {
 
 /* ******************************************************
  * Generic AJAX 'GET' request.
- * 
+ *
  * Takes a URL and a callback function as input.
  * ******************************************************/
 function fetchJsonAjax(url, cfunc) {
@@ -226,8 +226,8 @@ function selectedNodeClick() {
 /* ******************************************************
  * When the page is ready, setup the visualization and bind events
  * ******************************************************/
-// document.addEventListener("DOMContentLoaded", function(event) { 
-window.onload = function() { 
+// document.addEventListener("DOMContentLoaded", function(event) {
+window.onload = function() {
   vizInit(canvas, {}, populateLegend, populateSelected);
   /*
   document.getElementById('paste-parser').addEventListener('click', handleTextarea, false);

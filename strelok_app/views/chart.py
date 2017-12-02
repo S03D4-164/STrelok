@@ -114,7 +114,7 @@ def cnt_tgt_by_prop(cnt_by="sector", actor_name=None, drilldown=True, tgt=None):
                 relationship_type__name="attributed-to",
                 target_ref__in=oid,
             )
-            oid += list(at.values_list("source_ref",flat=True))    
+            oid += list(at.values_list("source_ref",flat=True))
             sights = sights.filter(sighting_of_ref__in=oid)
             rels = rels.filter(source_ref__in=oid)
     if not tgt:
@@ -195,7 +195,7 @@ def kill_chain_view(request):
         object_type__in=type
     )
     killchain = KillChainPhase.objects.all()
-    data =[] 
+    data =[]
     for obj in objs:
         o = get_obj_from_id(obj.object_id)
         if o.kill_chain_phases:

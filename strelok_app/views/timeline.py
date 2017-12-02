@@ -83,7 +83,7 @@ def set_group(so, data):
             content += "<li>{0}</li>".format(escape(a))
     sg = {
         "id": so.id,
-        "content": content, 
+        "content": content,
         "group": so.type
     }
     if not sg["id"] in data["subgroups"]:

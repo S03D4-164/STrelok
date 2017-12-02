@@ -25,7 +25,7 @@ var idCache = {};
 
 /* ******************************************************
  * Set up variables to be used by the visualizer.
- * 
+ *
  * Parameters:
  *     - canvas: <svg> element which will contain the graph
  *     - config: object containing options for the graph:
@@ -75,7 +75,7 @@ function vizInit(canvas, config, legendCb, selectedCb) {
  * Attempts to build and display the graph from an
  * arbitrary input string. If parsing the string does not
  * produce valid JSON, fails gracefully and alerts the user.
- * 
+ *
  * Parameters:
  *     - content: string of valid STIX 2 content
  *     - callback: optional function to call after building the graph
@@ -103,7 +103,7 @@ function vizStix(content, callback) {
 }
 
 /* ******************************************************
- * Returns true if the JavaScript object passed in has 
+ * Returns true if the JavaScript object passed in has
  * properties required by all STIX objects.
  * ******************************************************/
 function isStixObj(obj) {
@@ -147,7 +147,7 @@ function initGraph() {
       .attr("id", "drop-shadow")
       .attr("height", "200%")
       .attr("width", "200%")
-      .attr("x", "-50%") // x and y have to have negative offsets to 
+      .attr("x", "-50%") // x and y have to have negative offsets to
       .attr("y", "-50%"); // stop the edges from getting cut off
   // translate output of Gaussian blur to the right and downwards with 2px
   // store result in offsetBlur
@@ -238,7 +238,7 @@ function initGraph() {
   // should be redrawn every cycle (essentially, it allows the
   // elements to be animated)
   force.on("tick", function() {
-    
+
     link.attr("d", function(d) {
     var dx = d.target.x - d.source.x,
         dy = d.target.y - d.source.y;
@@ -355,7 +355,7 @@ function replacer(key, value) {
 function handleSelected(d, el) {
   jsonString = JSON.stringify(d, replacer, 2); // get only the STIX values
   purified = JSON.parse(jsonString); // make a new JSON object from the STIX values
-  
+
   // Pretty up the keys
   for (var key in purified) {
     if (d.hasOwnProperty(key)) {
@@ -391,7 +391,7 @@ function handlePin(d, el, pinBool) {
 /* ******************************************************
  * Parses the JSON input and builds the arrays used by
  * initGraph().
- * 
+ *
  * Takes a JSON object as input.
  * ******************************************************/
 function buildNodes(package) {
@@ -468,7 +468,7 @@ function nameFor(sdo) {
 /* ******************************************************
  * Parses valid SDOs from an array of potential SDO
  * objects (ideally from the data object)
- * 
+ *
  * Takes an array of objects as input.
  * ******************************************************/
 function parseSDOs(container) {
@@ -486,7 +486,7 @@ function parseSDOs(container) {
 
 /* ******************************************************
  * Adds an SDO node to the graph
- * 
+ *
  * Takes a valid SDO object as input.
  * ******************************************************/
 function addSdo(sdo) {
@@ -517,7 +517,7 @@ function addSdo(sdo) {
 /* ******************************************************
  * Adds relationships to the graph based on the array of
  * relationships contained in the data.
- * 
+ *
  * Takes an array as input.
  * ******************************************************/
 function addRelationships(relationships) {

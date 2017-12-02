@@ -23,12 +23,12 @@ chart = new Highcharts.chart({
     title: { text: 'Threat Actor' },
     subtitle: { text: subtitle },
     credits: {"enabled":false},
-    xAxis: { 
-        type: 'category', 
+    xAxis: {
+        type: 'category',
         //title: {text: xaxis } ,
     },
-    yAxis: { 
-        title: {text: 'Target Count' } 
+    yAxis: {
+        title: {text: 'Target Count' }
     },
     legend: { enabled: false },
     exporting: { enabled: false },

@@ -304,7 +304,7 @@ class RelationshipForm(forms.ModelForm):
                 Q(object_id__startswith="report--")
         )
         self.fields["source_ref"].queryset = exclude_rel
-        self.fields["target_ref"].queryset = exclude_rel 
+        self.fields["target_ref"].queryset = exclude_rel
     def clean(self):
         c = self.cleaned_data
         v = DefinedRelationship.objects.filter(
@@ -506,11 +506,11 @@ class InputForm(forms.Form):
         widget=forms.Textarea()
     )
 
-has_killchain = [                          
-    "attack-pattern",                            
-    #"indicator",    
-    "malware",      
-    "tool",         
+has_killchain = [
+    "attack-pattern",
+    #"indicator",
+    "malware",
+    "tool",
 ]
 type_has_killchain = STIXObjectType.objects.filter(name__in=has_killchain)
 

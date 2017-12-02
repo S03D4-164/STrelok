@@ -80,14 +80,14 @@ STIX Relationship Object<span class="caret"></span></a>
 <a class="dropdown-toggle" data-toggle="dropdown" href="#">User: {{user}}
 <span class="caret"></span></a>
 <ul class="dropdown-menu">
-<li><a href="/account/password_change/">Password Change</a></li>
-<li><a href="/account/two_factor/">2FA</a></li>
-<li><a href="/account/logout/?next={{request.path}}">Logout</a></li>
 {% if user.is_staff %}
 <li><a href="/admin/">Admin</a></li>
 <li><a href="/stix/all.json">Export All</a></li>
 <li><a href="/stix/masked-all.json">Export Masked</a></li>
 {% endif %}
+<li><a href="/account/password_change/">Password Change</a></li>
+<li><a href="/account/two_factor/">2FA</a></li>
+<li><a href="/account/logout/?next={{request.path}}">Logout</a></li>
 {% endif %}
 </ul>
 </div>

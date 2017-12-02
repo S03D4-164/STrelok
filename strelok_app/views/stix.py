@@ -128,7 +128,7 @@ def rep2db(rep, objs):
             r.description = rep['description']
         if "labels" in rep:
             labels = rep["labels"]
-            for label in labels: 
+            for label in labels:
                 l = ReportLabel.objects.filter(value=label)
                 if l.count() == 1:
                     r.labels.add(l[0])
@@ -143,7 +143,7 @@ def rep2db(rep, objs):
         r.save()
     return r
 
-def _stix2property(so, obj):            
+def _stix2property(so, obj):
     if "description" in obj:
         so.description = obj["description"]
     if "kill_chain_phases" in obj:
@@ -171,12 +171,12 @@ def stix2_db(obj):
                 t.description = obj["description"]
             if "aliases" in obj:
                 aliases = obj["aliases"]
-                for alias in aliases: 
+                for alias in aliases:
                     a, cre = ThreatActorAlias.objects.get_or_create(name=alias)
                     t.aliases.add(a)
             if "labels" in obj:
                 labels = obj["labels"]
-                for label in labels: 
+                for label in labels:
                     l, cre = ThreatActorLabel.objects.get_or_create(value=label)
                     t.labels.add(l)
             t.save()
@@ -191,7 +191,7 @@ def stix2_db(obj):
             c = _stix2property(c, obj)
             if "aliases" in obj:
                 aliases = obj["aliases"]
-                for alias in aliases: 
+                for alias in aliases:
                     a, cre = CampaignAlias.objects.get_or_create(name=alias)
                     c.aliases.add(a)
             c.save()
@@ -209,12 +209,12 @@ def stix2_db(obj):
                 i.identity_class = obj["identity_class"]
             if "sectors" in obj:
                 sectors = obj["sectors"]
-                for sector in sectors: 
+                for sector in sectors:
                     s, cre = IndustrySector.objects.get_or_create(value=sector)
                     i.sectors.add(s)
             if "labels" in obj:
                 labels = obj["labels"]
-                for label in labels: 
+                for label in labels:
                     l, cre = IdentityLabel.objects.get_or_create(value=label)
                     i.labels.add(l)
             i.save()
@@ -224,7 +224,7 @@ def stix2_db(obj):
             c = _stix2property(c, obj)
             if "aliases" in obj:
                 aliases = obj["aliases"]
-                for alias in aliases: 
+                for alias in aliases:
                     a, cre = IntrusionSetAlias.objects.get_or_create(name=alias)
                     c.aliases.add(a)
             c.save()
@@ -234,7 +234,7 @@ def stix2_db(obj):
             m = _stix2property(m, obj)
             if "labels" in obj:
                 labels = obj["labels"]
-                for label in labels: 
+                for label in labels:
                     l, cre = MalwareLabel.objects.get_or_create(value=label)
                     m.labels.add(l)
             m.save()
@@ -264,7 +264,7 @@ def stix2_db(obj):
             t = _stix2property(t, obj)
             if "labels" in obj:
                 labels = obj["labels"]
-                for label in labels: 
+                for label in labels:
                     l, cre = ToolLabel.objects.get_or_create(value=label)
                     t.labels.add(l)
             t.save()
@@ -281,7 +281,7 @@ def stix2_db(obj):
                 i.description = obj["description"]
             if "labels" in obj:
                 labels = obj["labels"]
-                for label in labels: 
+                for label in labels:
                     l, cre = IndicatorLabel.objects.get_or_create(value=label)
                     i.labels.add(l)
             if "pattern" in obj:
@@ -590,7 +590,6 @@ def stix_view(request):
                             if res:
                                 j = res.json()
                                 b = stix_filter(j, b, types=types, relation=relation)
-                                
                 elif 'parse_stix2' in request.POST:
                     j = form.cleaned_data["input"]
                     b = stix_filter(json.loads(j), b, types=types, relation=relation)

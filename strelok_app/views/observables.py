@@ -71,7 +71,6 @@ def obs_view(request, id):
                             r = create_obs_from_line(line)
                             o.resolve_to_refs.add(r)
                     o.save()
-                
     objects = []
     rels = []
     sights = []
@@ -181,7 +180,7 @@ def obs2pattern(observable, new=None, indicator=None, generate=False):
                 if generate:
                     p.pattern = "[" + " OR ".join(sorted(pattern)) + "]"
                 p.save()
-            else: 
+            else:
                 p = IndicatorPattern.objects.create(
                     pattern = "[" + " OR ".join(sorted(pattern)) + "]"
                 )

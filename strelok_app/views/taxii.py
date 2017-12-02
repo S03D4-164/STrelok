@@ -91,12 +91,12 @@ def stix_bundle(objs, rel=True, sight=True):
     objects = ()
     ids = []
     for o in objs:
-        if not o.object_id.id in ids: 
+        if not o.object_id.id in ids:
             ids.append(o.object_id.id)
         if o.object_type.name == "report":
             r = Report.objects.get(id=o.id)
             for i in r.object_refs.all().values_list("id",flat=True):
-                if i in ids: 
+                if i in ids:
                     ids.append(i)
         if rel:
             rels = Relationship.objects.filter(
