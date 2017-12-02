@@ -8,23 +8,12 @@ Application for STIX v2.0 objects management and analysis
 
 ## Quick Start
 
-1. Create docker containers for the first-time. When creation completed, exit (with Ctrl+c).
-
+1. Clone the repository and enter the directory.
+2. Run docker-compose.
 ```
 $ docker-compose up
 ```
-
-2. Execute following script to create DB. You need to create an admin account for the control panel in the final step. 
-
-```
-$ sh initdb.sh
-```
-
-3. Start up containers and connect to port 8000 of the docker host in web browser. 
-
-```
-$ docker-compose up
-```
+3. Connect to the server's port 8000 from web browser.
 
 If you don't like to start server on 0.0.0.0, please add static IP address to "ports" in docker-compose.yml as follows:
 
